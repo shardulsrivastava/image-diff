@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+
+set -euox pipefail
+
+cd "$(dirname $0)/.."
+
+export GCP_PROJECT_ID="dataservices-asia-prod"
+
+function exists()
+{
+  command -v "$1" >/dev/null 2>&1
+}
+
+function authenticate_to_gcr {
+
+    if exists /usr/local/bin/docker-credential-gcr ; then
+        echo "docker-credential-gcr found in PATH."
+    else
+        echo "docker-credential-gcr NOT found in PATH."
+        install_gcr
+    fi
+    echo "Authenticating to GCR"
+    /usr/local/bin/docker-credential-gcr configure-docker
+}
+
+function install_gcr {
+    echo "Installing Docker credential helper for GCR"
+
+    VERSION=2.0.1
+    OS=$(uname -s|tr '[:upper:]' '[:lower:]') # "linux"or "darwin" for OSX, "windows" for Windows.
+    ARCH=amd64  # or "386" for 32-bit OSs
+
+curl -fsSL "https://github.com/GoogleCloudPlatform/docker-credential-gcr/releases/download/v${VERSION}/docker-credential-gcr_${OS}_${ARCH}-${VERSION}.tar.gz" \
+  | tar xz --to-stdout ./docker-credential-gcr \
+  > /usr/local/bin/docker-credential-gcr && chmod +x /usr/local/bin/docker-credential-gcr
+}
+
+echo "Building Image Diff"
+
+IMAGE_NAME="image-diff"
+IMAGE_TAG="1"
+
+GCR_IMAGE_URL=asia.gcr.io/"${GCP_PROJECT_ID}"/"${IMAGE_NAME}":"${IMAGE_TAG}"
+
+docker build -f Dockerfile -t "${IMAGE_NAME}":"${IMAGE_TAG}" .
+
+echo "Tagging the image"
+docker tag "${IMAGE_NAME}":"${IMAGE_TAG}" "${GCR_IMAGE_URL}"
+
+authenticate_to_gcr
+
+echo "Pushing the image to Google Container Registry"
+docker push "${GCR_IMAGE_URL}"

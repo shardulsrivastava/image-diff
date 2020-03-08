@@ -1,0 +1,9 @@
+#!/usr/bin/env python3
+
+import sys
+sys.path.insert(0, 'image_diff')
+
+from image_diff import ImageDiff
+
+if __name__ == "__main__":
+    ImageDiff().main()
