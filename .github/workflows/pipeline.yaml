@@ -22,4 +22,6 @@ jobs:
         pip install -r requirements.txt
 
     - name: Test Image DIff
-      run: ./auto/test
+      run: |
+        cd test
+        python -m unittest test_image
