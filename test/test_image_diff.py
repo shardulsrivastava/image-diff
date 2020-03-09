@@ -20,6 +20,8 @@ class ImageDiffTest(unittest.TestCase):
         current_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
         print(f"Current Working Directory is => {current_dir}")
         input_file = f"{current_dir}/test/input.csv"
+        with open(input_file, "a") as input_csv:
+            input_csv.write(f"\n{current_dir}/test/dp.png {current_dir}/test/dp.png")
         output_file = f"{current_dir}/test/output.csv"
         ImageDiff().process_images(input_file)
         assert os.path.exists(output_file) == 1
