@@ -52,6 +52,10 @@ Once you have **Python 3.7** and **Pip** installed, follow the below steps:
 ```
   ./bin/image_diff --input-file <YOUR INPUT CSV FILE PATH> --output-file <YOUR OUTPUT CSV FILE PATH>
 ```
+
+## Architecture Diagram:
+
+![architecure Diagram](docs/architecture.png)
   
  # Tests
   
