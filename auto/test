@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-set -euox pipefail
-
-cd "$(dirname $0)/../test"
-
-echo "Running Tests"
-python3 -m unittest test_image
