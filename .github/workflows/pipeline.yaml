@@ -25,4 +25,4 @@ jobs:
     - name: Test Image DIff
       run: |
         cd test
-        python -m unittest test_image
+        python -m unittest test_image test_image_diff
