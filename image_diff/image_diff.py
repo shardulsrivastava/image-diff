@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 
-from utils import FileUtils
 from argparse import ArgumentParser
 import traceback
 import csv
-from image import compare_images
 import time
+from utils import FileUtils
+from image import compare_images
 
 
 class ImageDiff:
