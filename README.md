@@ -22,7 +22,7 @@ To use this utility, you should have these set of tools installed:
 ### Python 3.7 Installation
 Python can be installed from here:
 * Mac : https://www.python.org/downloads/mac-osx/
-* Windows: https://pip.pypa.io/en/stable/installing/
+* Windows: https://www.python.org/downloads/windows/
 
 ### Pip Installation 
 Pip is a package manager for Python packages and can be installed by following the below steps:
