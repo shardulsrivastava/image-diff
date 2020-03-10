@@ -57,8 +57,8 @@ git pull
  ## Configuration Options
  
  Image Diff has two configuration options:
- * --input-file :  This allows you to give the input CSV path.
- * --output-file : By default, **Image Diff** generates the output in your `current working directory` with name `outut.csv`. We can also give the full path of the output file by using config option `--output-file`. An example would be:
+ * **--input-file** :  This allows you to give the input CSV path.
+ * **--output-file** : By default, **Image Diff** generates the output in your `current working directory` with name `outut.csv`. We can also give the full path of the output file by using config option `--output-file`. An example would be:
 ```
   ./bin/image_diff --input-file <YOUR INPUT CSV FILE PATH> --output-file <YOUR OUTPUT CSV FILE PATH>
 ```
