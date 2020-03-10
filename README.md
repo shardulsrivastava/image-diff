@@ -2,10 +2,14 @@
 
 Image Diff is a Python based utility which takes a csv file as an input containing absolute paths of the images to be matched against each other and produces the output in the csv format.
 
-# Implementation
+## Implementation
  image Diff uses **Structural Similarity Measure algorigthm** to detect the similarity between two images and produces output as 0 if they are perfect match. **Scikit-image** has built-in implementation of this algorithm which provides a convenient method to use :  **skimage.metrics.structural_similarity** 
 
-# How to run Image Diff
+## Architecture Diagram:
+
+![architecure Diagram](docs/architecture.png)
+
+## How to run Image Diff
 
 To run Image Diff, there are several pre-requisites:
 
@@ -44,6 +48,12 @@ Once you have **Python 3.7** and **Pip** installed, follow the below steps:
   ./bin/image_diff --input-file <YOUR INPUT CSV FILE PATH>
   ```
  
+Note: To make sure you are running the latest code, please pull the latest code from repo by using command:
+```
+git pull
+```
+ 
+ 
  ## Configuration Options
  
  Image Diff has two configuration options:
@@ -53,11 +63,15 @@ Once you have **Python 3.7** and **Pip** installed, follow the below steps:
   ./bin/image_diff --input-file <YOUR INPUT CSV FILE PATH> --output-file <YOUR OUTPUT CSV FILE PATH>
 ```
 
-## Architecture Diagram:
+## Considerations:
 
-![architecure Diagram](docs/architecture.png)
+### How do you know if your code works?
+This repo has Github actions configured which run tests against Windows and Mac OS to check if the applications works on both platforms.
+
+### How to get the latest version of the code
+Before running the utility, please run command `git pull` to make you have the latest code.
   
- # Tests
+ ## Tests
   
 To make sure that this utility works fine, i have setup github actions workflow to run tests on **Windows and Mac OSX**.
 Build is triggered on every push to the repo and tests run everytime to make sure that this utility works on both       environments.
