@@ -1,4 +1,4 @@
-# Image-diff
+# Image-diff  ![CI](https://github.com/shardulsrivastava/image-diff/workflows/CI/badge.svg)
 
 Image Diff is a Python based utility which takes a csv file as an input containing absolute paths of the images to be matched against each other and produces the output in the csv format.
 
